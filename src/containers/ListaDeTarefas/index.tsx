@@ -3,19 +3,19 @@ import { Container } from './styles'
 
 const tarefas = [
   {
-    titulo: 'estudar Typescript',
+    titulo: 'Estudar Typescript',
     descricao: 'ver a aula EBAC',
     prioridade: 'importante',
     status: 'pendente'
   },
   {
-    titulo: 'pagar internet',
+    titulo: 'Pagar internet',
     descricao: 'baixar fatura',
     prioridade: 'urgente',
     status: 'concluída'
   },
   {
-    titulo: 'ir pra academia',
+    titulo: 'Ir pra academia',
     descricao: 'fazer trieno D',
     prioridade: 'importante',
     status: 'pendente'
