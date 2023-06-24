@@ -10,24 +10,31 @@ const initialState: TarefasState = {
   itens: [
     {
       id: 1,
-      descricao: 'Estudar JavaScript revendo o modulo 7',
+      descricao: 'Estudar JavaScript revendo o modulo 7 na EBAC',
       prioridade: enums.Prioridade.NORMAL,
       status: enums.Status.PENDENTE,
-      titulo: 'estudar JS'
+      titulo: 'Estudar JavaScript'
     },
     {
       id: 2,
       descricao: 'Estudar React-Redux revendo o modulo 30 na EBAC',
       prioridade: enums.Prioridade.IMPORTANTE,
       status: enums.Status.CONCLUIDA,
-      titulo: 'estudar ReactJS'
+      titulo: 'Estudar ReactJS usando Typescript'
     },
     {
       id: 3,
       descricao: 'Estudar Bootstrap',
       prioridade: enums.Prioridade.URGENTE,
       status: enums.Status.PENDENTE,
-      titulo: 'estudar Bootstrap'
+      titulo: 'Ver os conceitos do Bootstrap na Origamid'
+    },
+    {
+      id: 3,
+      descricao: 'Estudar Java na Udemy',
+      prioridade: enums.Prioridade.IMPORTANTE,
+      status: enums.Status.PENDENTE,
+      titulo: 'Estudar Java'
     }
   ]
 }
@@ -49,10 +56,21 @@ const tarefasSlice = createSlice({
       if (indexDaTarefa >= 0) {
         state.itens[indexDaTarefa] = action.payload
       }
+    },
+    cadastrar: (state, action: PayloadAction<Tarefa>) => {
+      const tarefaJaExiste = state.itens.find(
+        (tarefa) =>
+          tarefa.titulo.toLowerCase() === action.payload.titulo.toLowerCase()
+      )
+      if (tarefaJaExiste) {
+        alert('Já existe uma tarefa com esse titulo')
+      } else {
+        state.itens.push(action.payload)
+      }
     }
   }
 })
 
-export const { remover, editar } = tarefasSlice.actions
+export const { remover, editar, cadastrar } = tarefasSlice.actions
 
 export default tarefasSlice.reducer
